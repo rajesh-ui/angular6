@@ -1,10 +1,62 @@
 section.header {
-    border-bottom: solid 2px $blue;
+  border-bottom: solid 2px $blue;
+  @include breakpoint(mobileonly) {
+    padding: 20px;
+    height: 70px;
+  }
+  @include breakpoint(phablet) {
+    padding: 20px;
+    height: 80px;
+  }
+  @include breakpoint(tablet) {
+    padding: 20px;
+    height: 80px;
+  }
+  @include breakpoint(laptop) {
+    padding: 20px;
+    height: 80px;
+  }
+  @include breakpoint(desktop) {
     padding: 25px;
     height: 100px;
+  }
+  .mobile-menu {
+    margin-right: 10px;
+    cursor: pointer;
+    @include breakpoint(mobileonly) {
+      display: inline-block;
+    }
+    @include breakpoint(tablet) {
+      display: inline-block;
+    }
+    @include breakpoint(laptop) {
+      display: none;
+    }
+    @include breakpoint(desktop) {
+      display: none;
+    }
+  }
+}
+
+.logo {
+  @include breakpoint(mobileonly) {
+    width: 70px;
+  }
+  @include breakpoint(phablet) {
+    width: 100px;
+  }
+  @include breakpoint(tablet) {
+    width: 100px;
+  }
+  @include breakpoint(laptop) {
+    width: 150px;
+  }
+  @include breakpoint(desktop) {
+    width: 150px;
+  }
 }
 
 div.right-section {
-    float: right;
-    line-height: 46px;
+  float: right;
+  line-height: 46px;
 }

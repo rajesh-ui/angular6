@@ -16,6 +16,18 @@ h1 {
     width: calc(100% - 50px);
     float: left;
     transition: .3s ease;
+    @include breakpoint(mobileonly) {
+        width: 100%;
+      }
+      @include breakpoint(tablet) {
+        width: 100%;
+      }
+      @include breakpoint(laptop) {
+        width: calc(100% - 50px);
+      }
+      @include breakpoint(desktop) {
+        width: calc(100% - 50px);
+      }
 }
 
 .expand .container {

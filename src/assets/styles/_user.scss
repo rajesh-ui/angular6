@@ -1,0 +1,60 @@
+.page-head {
+  @include breakpoint(mobileonly) {
+    text-align: center;
+    font-size: 24px;
+    margin: 7px 0;
+  }
+  @include breakpoint(tablet) {
+    text-align: center;
+    font-size: 24px;
+    margin: 7px 0;
+  }
+  @include breakpoint(phablet) {
+    text-align: center;
+    font-size: 24px;
+    margin: 7px 0;
+  }
+  @include breakpoint(laptop) {
+    text-align: left;
+    margin: 10px 0 20px 0;
+    font-size: 28px;
+  }
+  @include breakpoint(desktop) {
+    text-align: left;
+    margin: 10px 0 20px 0;
+    font-size: 28px;
+  }
+}
+
+.create-btn {
+    @include breakpoint(mobileonly) {
+        left: 50%;
+        position: relative;
+        transform: translate(-50%, 0);
+        margin: 5px 0;
+      }
+      @include breakpoint(tablet) {
+        left: 50%;
+        position: relative;
+        transform: translate(-50%, 0);
+        margin: 5px 0;
+      }
+      @include breakpoint(phablet) {
+        left: 50%;
+        position: relative;
+        transform: translate(-50%, 0);
+        margin: 5px 0;
+      }
+      @include breakpoint(laptop) {
+        float: right;
+        margin: 10px;
+        transform: none;
+        position: static;
+      }
+      @include breakpoint(desktop) {
+        float: right;
+        margin: 10px;
+        transform: none;
+        position: static;
+      }
+}
