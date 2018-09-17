@@ -1,0 +1,22 @@
+.main-table {
+    width: 80%;
+}
+
+table, td, tr {
+    border: solid 1px #ccc;
+}
+
+th {
+    background: #517bb8;
+    color: #fff;
+    border: solid 1px $blue;
+    padding: 7px !important;
+}
+
+tr:nth-child(even) {
+    background: #eaf1ff;
+}
+
+tr:hover {
+    background: #e3e3e3;
+}

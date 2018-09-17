@@ -1,0 +1,81 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "rajesh_test",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537184571580
+    },
+    {
+      "name": "rajesh",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537123944570,
+      "id": 2
+    },
+    {
+      "name": "rajesh",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537123946857,
+      "id": 3
+    },
+    {
+      "name": "rajesh2",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537123953674,
+      "id": 4
+    },
+    {
+      "name": "rajesh23",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537123956568,
+      "id": 5
+    },
+    {
+      "name": "rajesh235",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537123960155,
+      "id": 6
+    },
+    {
+      "name": "rajesh2356",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537123963096,
+      "id": 7
+    },
+    {
+      "name": "rajesh23567",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537123965968,
+      "id": 8
+    },
+    {
+      "id": 9,
+      "name": "rajesh123",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537184528314
+    },
+    {
+      "name": "rajesh12",
+      "email": "rajesh@123.com",
+      "tel": "1234567890",
+      "created": 1537123971516,
+      "id": 10
+    },
+    {
+      "name": "test",
+      "email": "test",
+      "tel": "123456789",
+      "created": 1537184551884,
+      "id": 11
+    }
+  ]
+}
