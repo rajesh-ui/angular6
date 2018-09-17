@@ -47,7 +47,7 @@ export class UserService {
   }
 
   searchUser(term) {
-    const url = this.api_endpoint + this.module_name + '?q=' + term;
+    const url = this.api_endpoint + this.module_name + '?_sort=created&_order=desc&q=' + term;
     return this.http.get(url);
   }
 
