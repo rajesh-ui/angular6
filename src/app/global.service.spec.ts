@@ -9,7 +9,16 @@ describe('GlobalService', () => {
     });
   });
 
-  it('should be created', inject([GlobalService], (service: GlobalService) => {
+  it('Global Service should be created', inject([GlobalService], (service: GlobalService) => {
     expect(service).toBeTruthy();
+  }));
+
+  it('should toggle sideMenu', inject([GlobalService], (service: GlobalService) => {
+    service.sidenav_expanded = 0;
+    service.toggleSideNav();
+    service.sidenav_expansion_event.subscribe(data => {
+      expect(data).toEqual(1);
+    });
+    expect(service.sidenav_expanded).toEqual(1);
   }));
 });

@@ -1,0 +1,11 @@
+{
+    "user": {
+        "title": "Gestion des utilisateurs",
+        "name": "prénom",
+        "email":"Identifiant de messagerie",
+        "tel":"Téléphone",
+        "created":"Créé sur",
+        "create":"Créer un utilisateur",
+        "placeholder": "Chercher..."
+    }
+}

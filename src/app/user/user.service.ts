@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
 
 export interface User {
   name;
@@ -11,20 +15,24 @@ export interface User {
 @Injectable()
 export class UserService {
 
-  private api_endpoint = 'http://localhost:3000/';
+  api_endpoint = 'http://localhost:3000/';
 
-  private module_name = 'customers';
+  module_name = 'customers';
 
-  constructor(private http: Http) { }
+  query = null;
+
+  constructor(public http: Http) { }
 
   createUser(user: User) {
     const url = this.api_endpoint + this.module_name;
+    user.created = +(new Date());
     return this.http.post(url, user)
-    .toPromise();
+      .toPromise();
   }
 
   editUser(user) {
     const url = this.api_endpoint + this.module_name + '/' + user.id;
+    user.created = +(new Date());
     return this.http.put(url, user).toPromise();
   }
 
@@ -33,9 +41,20 @@ export class UserService {
     return this.http.delete(url).toPromise();
   }
 
-  getUser(pageNum, rowsPerPage, filter?) {
+  getUser(pageNum, rowsPerPage) {
     const url = this.api_endpoint + this.module_name + '?_sort=created&_order=desc' + `&_page=${pageNum}&_limit=${rowsPerPage}`;
-    return this.http.get(url).toPromise();
+    return this.http.get(url);
+  }
+
+  searchUser(term) {
+    const url = this.api_endpoint + this.module_name + '?q=' + term;
+    return this.http.get(url);
+  }
+
+  search(terms: Observable<string>) {
+    return terms.debounceTime(400)
+      .distinctUntilChanged()
+      .switchMap(term => this.searchUser(term));
   }
 
 }

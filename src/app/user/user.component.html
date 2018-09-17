@@ -1,18 +1,20 @@
-<h1 class="page-head">User Management</h1>
+<h1 class="page-head">{{strings?.title}}</h1>
 
-<button class="btn btn-primary create-btn" (click)="openAddpopup = true">Create User</button>
-
+<button class="btn btn-primary create-btn" (click)="openAddpopup = true">{{strings?.create}}</button>
 <div class="clearfix"></div>
+
 <p-messages [value]="msgs" appendTo="body"></p-messages>
-<p-table [value]="users" [lazy]="true" (onLazyLoad)="paginate($event)" [paginator]="true" 
-[rows]="rowsPerpage" [totalRecords]="totalRecords" [loading]="loading" [responsive]="true" emptymessage='No records found.'>
+<input type="text" class="pull-left" (keyup)="searchQuery$.next($event.target.value)" placeholder="{{strings?.placeholder}}" />
+<div class="clearfix"></div>
+<p-table [value]="users" [lazy]="true" (onLazyLoad)="paginate($event)" [paginator]="true" [rows]="rowsPerpage" [totalRecords]="totalRecords"
+  [loading]="loading" [responsive]="true" emptymessage='No records found.'>
   <ng-template pTemplate="header">
     <tr>
       <th width="10%"></th>
-      <th>Name</th>
-      <th>Email Id</th>
-      <th>Telephone</th>
-      <th>Created on</th>
+      <th>{{strings?.name}}</th>
+      <th>{{strings?.email}}</th>
+      <th>{{strings?.tel}}</th>
+      <th>{{strings?.created}}</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-user let-index="rowIndex">
@@ -22,11 +24,29 @@
         <i class="fa {{ user.editable ? 'fa-save' : 'fa-pencil'}}" (click)="user.editable ? save(user) : user.editable = true"></i> &nbsp;
         <i class="fa fa-close" *ngIf="user.editable" (click)="user.editable = false"></i>
       </td>
-      <td><span class="ui-column-title">Name : </span> <span *ngIf="!user.editable">{{user.name}}</span><span *ngIf="user.editable"><input type="text" [(ngModel)]="user.name"/></span>
+      <td>
+        <span class="ui-column-title">Name : </span>
+        <span *ngIf="!user.editable">{{user.name}}</span>
+        <span *ngIf="user.editable">
+          <input type="text" [(ngModel)]="user.name" />
+        </span>
       </td>
-      <td><span class="ui-column-title">Email :</span> <span *ngIf="!user.editable">{{user.email}}</span><span *ngIf="user.editable"><input type="email" [(ngModel)]="user.email"/></span></td>
-      <td><span class="ui-column-title">Telephone : </span> <span *ngIf="!user.editable">{{user.tel}}</span><span *ngIf="user.editable"><input type="tel" [(ngModel)]="user.tel"/></span></td>
-      <td><span class="ui-column-title">Created : </span> {{user.created | date : 'short'}}</td>
+      <td>
+        <span class="ui-column-title">Email :</span>
+        <span *ngIf="!user.editable">{{user.email}}</span>
+        <span *ngIf="user.editable">
+          <input type="email" [(ngModel)]="user.email" />
+        </span>
+      </td>
+      <td>
+        <span class="ui-column-title">Telephone : </span>
+        <span *ngIf="!user.editable">{{user.tel}}</span>
+        <span *ngIf="user.editable">
+          <input type="tel" [(ngModel)]="user.tel" />
+        </span>
+      </td>
+      <td>
+        <span class="ui-column-title">Created : </span> {{user.created | date : 'short'}}</td>
     </tr>
   </ng-template>
 </p-table>

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { GlobalService } from './global.service';
+import { I18nService } from './i18n.service';
 
 import { AppRoutes } from './app.routes';
 
@@ -24,7 +25,7 @@ import { AppRoutes } from './app.routes';
     HttpModule,
     AppRoutes
   ],
-  providers: [GlobalService],
+  providers: [GlobalService, I18nService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,11 @@
+{
+    "user": {
+        "title": "User Management",
+        "name": "Name",
+        "email":"Email Id",
+        "tel":"Telephone",
+        "created":"Created On",
+        "create":"Create User",
+        "placeholder": "Search.."
+    }
+}
