@@ -31,18 +31,16 @@
 }
 
 .create-btn {
-  margin: 5px 0;
+  margin-bottom: 10px;
 
   @include breakpoint(laptop) {
     float: right;
-    margin: 10px;
     transform: none;
     position: static;
   }
 
   @include breakpoint(desktop) {
     float: right;
-    margin: 10px;
     transform: none;
     position: static;
   }

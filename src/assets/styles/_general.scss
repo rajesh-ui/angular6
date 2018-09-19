@@ -6,9 +6,25 @@ h1 {
 }
 
 .wrapper {
-  height: calc(100% - 101px);
   overflow: hidden;
   overflow-y: auto;
+  @include breakpoint(mobileonly) {
+    height: calc(100% - 70px);
+  }
+  
+  @include breakpoint(phablet) {
+    height: calc(100% - 80px);
+  }
+  
+  @include breakpoint(tablet) {
+    height: calc(100% - 80px);
+  }
+  @include breakpoint(laptop) {
+    height: calc(100% - 100px);
+  }
+  @include breakpoint(desktop) {
+    height: calc(100% - 100px);
+  }
 }
 
 .container {
@@ -23,5 +39,8 @@ h1 {
 }
 
 .expand .container {
-  width: calc(100% - 200px) !important;
+  @include breakpoint(laptop) {
+    width: calc(100% - 200px) !important;
+  }
 }
+

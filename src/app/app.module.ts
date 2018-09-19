@@ -11,6 +11,8 @@ import { GlobalService } from './global.service';
 import { I18nService } from './i18n.service';
 
 import { AppRoutes } from './app.routes';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { OthersComponent } from './others/others.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { AppRoutes } from './app.routes';
     AppComponent,
     HeaderComponent,
     SidenavComponent,
+    DashboardComponent,
+    OthersComponent,
   ],
   imports: [
     BrowserModule,

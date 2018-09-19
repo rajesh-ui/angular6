@@ -1,9 +1,9 @@
 <aside class="left-nav {{expand ? 'maximise' : ''}}">
   <span (click)="expand = !expand; toggle()" class="exp"><i class="fa {{expand ? 'fa-chevron-left' : 'fa-chevron-right'}}"></i></span>
   <nav>
-    <li><i class="fa fa-tag"></i><span>Link 1</span></li>
-    <li><i class="fa fa-tags"></i><span>Link 2</span></li>
-    <li><i class="fa fa-tree"></i><span>Link 3</span></li>
+    <li [routerLink]="'/dashboard'" routerLinkActive='active'><a><i class="fa fa-bar-chart"></i><span>Dashboard</span></a><span class="arrow"></span></li>
+    <li [routerLink]="'/user'" routerLinkActive='active'><a><i class="fa fa-user"></i><span> User Mangement</span></a><span class="arrow"></span></li>
+    <li [routerLink]="'/other'" routerLinkActive='active'><a><i class="fa fa-tree"></i><span>Other Links</span></a><span class="arrow"></span></li>
   </nav>
 
 </aside>

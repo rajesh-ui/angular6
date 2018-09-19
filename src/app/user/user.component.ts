@@ -1,5 +1,5 @@
-import { Component, OnInit, } from '@angular/core';
-import { UserService, User } from './user.service';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { UserService } from './user.service';
 import { ConfirmationService } from 'primeng/api';
 import { Subject } from 'rxjs/Subject';
 import { I18nService } from '../i18n.service';
@@ -12,7 +12,7 @@ import { I18nService } from '../i18n.service';
 export class UserComponent implements OnInit {
   private strings = {
     'title': 'User Management',
-    'name': 'name',
+    'name': 'Name',
     'email': 'Email Id',
     'tel': 'Telephone',
     'created': 'Created On',
@@ -21,13 +21,14 @@ export class UserComponent implements OnInit {
   };
   private users;
   private openAddpopup = false;
-  private rowsPerpage = 10;
+  private rowsPerpage = 15;
   private page = 1;
   private filter = {};
   totalRecords: number;
   loading: boolean;
   msgs = [];
   searchQuery$ = new Subject<string>();
+  scrollHeight: string;
 
   private user = {
     name: '',
@@ -37,12 +38,18 @@ export class UserComponent implements OnInit {
   };
 
   constructor(private _service: UserService, private confirmationService: ConfirmationService,
-    private _i18n: I18nService) {
+    private _i18n: I18nService, private ngZone: NgZone) {
     this._service.search(this.searchQuery$)
       .subscribe(data => {
         this.users = data.json();
         this.totalRecords = this.users.length;
       });
+    window.onresize = () => {
+      ngZone.run(() => {
+        this.caculateScrollHeight();
+      });
+    };
+
   }
 
   addUser(event) {
@@ -99,7 +106,20 @@ export class UserComponent implements OnInit {
       .then(data => {
         this.totalRecords = +data.headers.get('x-total-count');
         this.users = data.json();
+        this.caculateScrollHeight();
       })
+  }
+
+  caculateScrollHeight() {
+    const headwrap: any = document.querySelector('.js-headwrap');
+    const header: any = document.querySelector('section.header');
+    const HeaderHeight = header.offsetHeight;
+    const paginatorHeight = 35;
+    const tableHead: any = document.querySelector('.ui-widget-header');
+    const tableHeadHeight = tableHead.offsetHeight;
+    const screenHeight = window.innerHeight;
+    const footergap = 20;
+    this.scrollHeight = (screenHeight - (HeaderHeight + headwrap.offsetHeight + paginatorHeight + tableHeadHeight + footergap)) + 'px';
   }
 
   ngOnInit() {

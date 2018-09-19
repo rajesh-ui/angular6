@@ -52,9 +52,11 @@ export class UserService {
   }
 
   search(terms: Observable<string>) {
-    return terms.debounceTime(400)
+    return terms.debounceTime(100)
       .distinctUntilChanged()
-      .switchMap(term => this.searchUser(term));
+      .switchMap(term => {
+        return this.searchUser(term)
+      });
   }
 
 }

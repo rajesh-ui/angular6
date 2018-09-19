@@ -1,77 +1,114 @@
 .left-nav {
-    width: 50px;
-    background: $dark-blue;
-    height: 100%;
-    float: left;
-    overflow: hidden;
-    transition: .3s ease;
-    color: #fff;
-    border-right: solid 1px $blue;
-    
-    .exp {
-      display: inline-block;
-      width: 100%;
-      text-align: right;
-      margin: 5px -3px;
-      cursor: pointer;
-    }
-    &.maximise {
-      width: 200px;
-      @include breakpoint(mobileonly) {
-        display: block;
-        position: absolute;
-        z-index: 1;
-      }
-      @include breakpoint(tablet) {
-        display: block;
-        position: absolute;
-        z-index: 1;
-      }
-      @include breakpoint(phablet) {
-        display: block;
-        position: absolute;
-        z-index: 1;
-      }
+  width: 50px;
+  background: $dark-blue;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  transition: .3s ease;
+  color: #fff;
+  border-right: solid 1px $blue;
 
-      @include breakpoint(laptop) {
-        position: relative;
-      }
-      @include breakpoint(desktop) {
-        position: relative;
-      }
+  .exp {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    margin: 5px -3px;
+    cursor: pointer;
+  }
 
-    }
-    li {
-      list-style-type: none;
-      width: 200px;
-      height: 50px;
-      line-height: 50px;
-      border-bottom: solid 1px $blue;
-      padding-left: 20px;
-      box-shadow: 0px 2px 3px -3px #eaf1ff;
-      i {
-        display: inline-block;
-        font-style: normal;
-        margin-right: 17px;
-      }
-    }
+  &.maximise {
+    width: 200px;
 
     @include breakpoint(mobileonly) {
-        display: none;
-      }
-      @include breakpoint(tablet) {
-        display: none;
-      }
-      @include breakpoint(phablet) {
-        display: none;
-      }
-      @include breakpoint(laptop) {
-        display: block;
-        position: relative;
-      }
-      @include breakpoint(desktop) {
-        display: block;
-        position: relative;
-      }
+      display: block;
+      position: absolute;
+      z-index: 1;
+    }
+
+    @include breakpoint(tablet) {
+      display: block;
+      position: absolute;
+      z-index: 1;
+    }
+
+    @include breakpoint(phablet) {
+      display: block;
+      position: absolute;
+      z-index: 1;
+    }
+
+    @include breakpoint(laptop) {
+      position: relative;
+    }
+
+    @include breakpoint(desktop) {
+      position: relative;
+    }
+
   }
-  
+
+  li {
+    list-style-type: none;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: solid 1px $blue;
+    padding-left: 20px;
+    box-shadow: 0px 2px 3px -3px #eaf1ff;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+
+    a {
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    i {
+      display: inline-block;
+      font-style: normal;
+      margin-right: 17px;
+    }
+
+    span.arrow {
+      display: none;
+      position: absolute;
+      left: 2px;
+      top: 1px;
+      background: #fff;
+      width: 3px;
+      height: 48px;
+    }
+
+    &.active {
+      span.arrow {
+        display: inline-block;
+      }
+    }
+  }
+
+  @include breakpoint(mobileonly) {
+    display: none;
+  }
+
+  @include breakpoint(tablet) {
+    display: none;
+  }
+
+  @include breakpoint(phablet) {
+    display: none;
+  }
+
+  @include breakpoint(laptop) {
+    display: block;
+    position: relative;
+  }
+
+  @include breakpoint(desktop) {
+    display: block;
+    position: relative;
+  }
+}

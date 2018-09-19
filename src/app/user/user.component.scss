@@ -4,11 +4,24 @@
 }
 
 input[type=search] {
-
   margin-bottom: 10px;
- 
+  width: 50%;
 }
 
+span.total {
+  line-height: 34px;
+  margin-left: 20px;
+}
+.search-wrap {
+  display: inline;
+  position: relative;
+  i {
+    position: absolute;
+    right: 8px;
+    top: 3px;
+    cursor: pointer;
+  }
+}
 .m-10 {
   margin: 10px;
 }

@@ -1,14 +1,19 @@
+<div class="clearfix js-headwrap">
 <h1 class="page-head">{{strings?.title}}</h1>
 
 <div class="clearfix"></div>
 
 <p-messages [value]="msgs" appendTo="body"></p-messages>
-<input type="search" class="form-control pull-left" (keyup)="searchQuery$.next($event.target.value)" placeholder="{{strings?.placeholder}}" />
-
+<div class="search-wrap">
+<input type="search" #search class="form-control pull-left" (keyup)="searchQuery$.next($event.target.value)" placeholder="{{strings?.placeholder}}" />
+<i class="fa fa-close" *ngIf="search.value !== ''" (click)="search.value = '';searchQuery$.next('')"></i>
+</div>
+<span class="total">Users : <b>{{totalRecords}}</b></span>
 <button class="btn btn-primary create-btn pull-right" (click)="openAddpopup = true">{{strings?.create}}</button>
 <div class="clearfix"></div>
+</div>
 <p-table [value]="users" [lazy]="true" (onLazyLoad)="paginate($event)" [paginator]="true" [rows]="rowsPerpage"
-  [totalRecords]="totalRecords" [loading]="loading" [responsive]="true" emptymessage='No records found.'>
+  [totalRecords]="totalRecords" [loading]="loading" [responsive]="true" [scrollable]="true" [scrollHeight]="scrollHeight" emptymessage='No records found.'>
   <ng-template pTemplate="header">
     <tr>
       <th width="10%"></th>
