@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
   };
   private users;
   private openAddpopup = false;
-  private rowsPerpage = 15;
+  private rowsPerpage = 20;
   private page = 1;
   private filter = {};
   totalRecords: number;
@@ -52,10 +52,15 @@ export class UserComponent implements OnInit {
 
   }
 
+  clearMessage() {
+    setTimeout(() => this.msgs = [], 3000);
+  }
+
   addUser(event) {
     this._service.createUser(this.user)
       .then(data => {
-        this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'Record Added' }];
+        this.msgs = [{ severity: 'success', summary: 'Confirmed', detail: 'Record Added' }];
+        this.clearMessage();
         this.refresh();
         this.openAddpopup = false;
       })
@@ -66,7 +71,8 @@ export class UserComponent implements OnInit {
     const modified_data = { id: user.id, name: user.name, email: user.email, tel: user.tel, created: 0 };
     this._service.editUser(modified_data)
       .then(data => {
-        this.msgs = [{ severity: 'info', summary: 'Edited', detail: 'Record Edited Succesfully' }];
+        this.msgs = [{ severity: 'success', summary: 'Edited', detail: 'Record Edited Succesfully' }];
+        this.clearMessage();
       })
   }
 
@@ -78,7 +84,8 @@ export class UserComponent implements OnInit {
   deleteUser(id, index) {
     this._service.deleteUser(id)
       .then(data => {
-        this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' }];
+        this.msgs = [{ severity: 'success', summary: 'Confirmed', detail: 'Record deleted' }];
+        this.clearMessage();
         this.refresh();
       })
       .catch(err => {
@@ -96,6 +103,7 @@ export class UserComponent implements OnInit {
       },
       reject: () => {
         this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+        this.clearMessage();
       }
     });
 
