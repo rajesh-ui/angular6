@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { Route, Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user.component';
 import { UserService } from './user.service';
-import {TableModule} from 'primeng/table';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
+import { TableModule } from 'primeng/table';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 
 const appRoutes: Routes = [
