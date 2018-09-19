@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
   };
   private users;
   private openAddpopup = false;
-  private rowsPerpage = 20;
+  public rowsPerpage = 20;
   private page = 1;
   private filter = {};
   totalRecords: number;

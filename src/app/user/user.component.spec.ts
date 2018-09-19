@@ -45,9 +45,11 @@ describe('UserComponent', () => {
     expect(de.query(By.css('h1')).nativeElement.innerText).toBe('User Management');
   });
 
-  it('Should have 10 rows loaded', () => {
-    component.refresh();
-    setTimeout(() => expect(de.queryAll(By.css('tr')).length).toBe(11), 1000);
+  it('Should load users', () => {
+    component.ngOnInit();
+    fixture.whenStable().then(() => {
+      expect(de.queryAll(By.css('tr')).length).toBe(component.rowsPerpage + 1);
+    });
   });
 
 });
